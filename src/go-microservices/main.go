@@ -27,18 +27,19 @@ func rootHHandler(w http.ResponseWriter, r *http.Request) {
 
 }
 
-func detailsHandler(w http.ResponseWriter, r *http.Request) {
-	log.Println("checking proper api status details")
-	hostname, err := details.getHostName()
-	if err != nil {
-		panic(err)
-	}
+//func detailsHandler(w http.ResponseWriter, r *http.Request) {
+//log.Println("checking proper api status details")
+//hostname, err := details.getHostName()
+//if err != nil {
+//panic(err)
+//}
 
-}
+//}
 
 func main() {
 	r := mux.NewRouter()
 	r.HandleFunc("/health", healthHandler)
+	r.HandleFunc("/", rootHHandler)
 
 	//	r.HandleFunc("/books/{title}/page/{page}", func(w http.ResponseWriter, r *http.Request) {
 	//		vars := mux.Vars(r)
